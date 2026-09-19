@@ -10,8 +10,10 @@ app.use(morgan('dev'));
 app.use(express.json()); // método que ayuda a convertir el código para que el servidor pueda entender lo que viene del cliente.
 app.use(cors({origin: 'http://localhost:4200'})); // método para comunicar con el cliente
 // rutas de nuestro servidor
-app.use('/api/empleados', require('./backend/router/empleado.routes.js'));
+app.use('/api/usuarios', require('./backend/router/user.routes'));
+app.use('/api/productos', require('./backend/router/product.routes'));
+// La ruta de empleados fue eliminada temporalmente porque el archivo estaba vacío y rompía la ejecución.
 // Iniciando el servidor
-app.listen(app.get('port'), () => {// esta es una mejor manera de configurar el puerto
+app.listen(app.get('port'), () => {
     console.log('server activo en el puerto', app.get('port'));
 }); 
